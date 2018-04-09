@@ -1,0 +1,597 @@
+/*
+ * General styles of the page
+ */
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Faster One', cursive;
+}
+
+.container {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/*
+ * Styles of the landing page
+ */
+
+.landing {
+    position: relative;
+    margin: 10%;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.landing h1,
+.landing h2:not(#game-title) {
+    font-size: 5em;
+    margin: 0;
+    margin-bottom: 5%;
+    background: linear-gradient(132deg, #2c5d7d, #041328,
+        #a3daff, #2c5d7d, #9be3f5cf);
+    background-size: 400% 400%;
+    -webkit-animation: Gradient 10s ease-in infinite;
+            animation: Gradient 10s ease-in infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+ .start {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    font-size: 3em;
+    background: transparent;
+    border: none;
+    background: linear-gradient(132deg, #2c5d7d, #041328,
+        #a3daff, #2c5d7d, #9be3f5cf);
+    background-size: 400% 400%;
+    -webkit-animation: Gradient 10s ease-in infinite;
+            animation: Gradient 10s ease-in infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.start svg {
+    align-self: center;
+    color: #07182e;
+    margin-top: 5%;
+    -webkit-animation: start linear 1.5s;
+            animation: start linear 1.5s;
+    -webkit-animation-iteration-count: 10;
+            animation-iteration-count: 10;
+    -webkit-transform-origin: 50% 50%;
+            transform-origin: 50% 50%;
+}
+
+
+#myVideo {                      /*full background video loop from Videezy*/
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+}
+
+h1,h2 {
+    position: relative;
+    font-weight: 300;
+    font-size: 3em;
+}
+
+.landing #game-title {
+    font-size: 6.5em;
+    margin: 0;
+    background: linear-gradient(132deg, #2c5d7d, #041328,
+        #a3daff, #2c5d7d, #9be3f5cf);
+    background-size: 400% 400%;
+    -webkit-animation: Gradient-scaling 10s ease-in 1;
+            animation: Gradient-scaling 10s ease-in 1;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+   
+}
+
+/*
+ * Styles for the deck of cards
+ */
+
+.container header h1 {
+    font-size: 5em;
+    background: linear-gradient(132deg, #2c5d7d, #041328,
+        #a3daff, #2c5d7d, #9be3f5cf);
+    background-size: 400% 400%;
+    -webkit-animation: Gradient-scaling 6s ease-in 1;
+            animation: Gradient-scaling 6s ease-in 1;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.deck {
+    width: 800px;
+    min-height: 800px;
+    opacity: 0.85;
+    padding: 32px;
+    border-radius: 10px;
+    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2em;
+    position: relative;
+    perspective: 800px;
+    background: linear-gradient(132deg, #8a989d, #f2dced,
+        #96b5ca, #2c5d7d, #c6d6da);
+    background-size: 400% 400%;
+    -webkit-animation: Gradient 10s ease-in infinite;
+            animation: Gradient 10s ease-in infinite;
+}
+
+.deck .card {
+    height: 125px;
+    width: 125px;
+    background: #111a21;
+    font-size: 0;
+    color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+    transform-style: preserve-3d;
+    transition: transform 1s;
+}
+
+.deck .card.open {
+    background: #02b3e4;
+    cursor: default;
+    transform: rotateY( 180deg ) scale(1.15);
+}
+
+.deck .card.locked {
+    background: #02b3e4;
+    
+}
+
+.deck .card > .locked{
+    opacity: 1;
+}
+
+
+.deck .card.matched {
+    cursor: default;
+    background: #02ccba;
+    font-size: 33px;
+    animation: matched-card 2s ease-in-out infinite;
+}
+
+.deck .card img {
+    height: 110px;
+    width: 110px;
+}
+
+.deck .card .hidden {
+    opacity: 0;
+}
+
+.deck .card .visible {
+    opacity: 1;
+}
+
+/*
+ * Styles for the Score Panel
+ */
+
+.score-panel {
+    display: flex;
+    justify-content: space-between;
+    width: 800px;
+    margin: 1em;
+    position: relative;
+    font-size: 2em;
+}
+
+.score-panel .stars {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    margin: 0 5px 0 0;
+}
+
+.score-panel .stars li {
+    list-style: none;
+    display: inline-block;
+}
+
+.score-panel .restart {
+    cursor: pointer;
+}
+
+/*
+ * Styles for the congrats page
+ */
+
+.congrats {
+    width: 800px;
+    min-height: 800px;
+    opacity: 0.85;
+    padding: 32px;
+    border-radius: 10px;
+    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-top: 2em;
+    position: relative;
+    perspective: 800px;
+    overflow: hidden;
+}
+
+.congrats .message-box {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.message-box p {
+    color: #fff;
+    font-size: 3em;
+    position: relative;
+    z-index: 4;
+}
+
+.message-box p:nth-child(1) {
+    animation: animate-me 5s ease-in-out 10;
+}
+
+.message-box p:nth-child(2) {
+    animation: animate-me2 0.4s ease-in-out infinite;
+}
+
+#play-again {
+    width: 40%;
+    height: 2.5em;
+    align-self: center;
+    position: relative;
+    z-index: 4;
+    background: transparent;
+    color: #fff;
+    border-radius: 40px;
+    box-shadow: 7px 5px 20px 0px black;
+    font-size: 30px;
+    font-family: 'Faster One', cursive;
+}
+
+#myvideo2 {
+    object-fit: contain;
+    position: fixed;
+    z-index: -1;
+
+}
+
+.congrats .stars {
+    display: flex;
+    justify-content: space-around;
+    color: #fff;
+    
+}
+
+.congrats .stars > * {
+    animation: Moving-stars 3s ease-in infinite;
+}
+
+.score-s {
+    animation : score-stars 2s ease-in-out infinite;
+}
+
+
+
+
+
+                    /* MEDIA QUERIES */
+
+@media screen and (max-width: 572px ) {
+
+                    /*landing page*/
+
+    .landing h1,
+    .landing h2:not(#game-title) {
+        font-size: 3em;
+        margin-bottom: 10%;
+    }
+
+    .landing #game-title {
+        font-size: 3.5em;
+        margin: 20% 0;
+    }
+
+    .start {
+        font-size: 2em;
+    }
+
+                    /*game page*/
+
+    .container header h1 {
+        font-size: 2em;
+    }
+
+    .deck {
+        width: 400px;
+        min-height: 430px;
+    }
+
+    .deck .card {
+        margin: 2%;
+        height: 90px;
+        width: 70px;
+    }
+
+    .deck .card img {
+        height: 90px;
+        width: 70px;
+    }
+
+    .score-panel {
+        justify-content: space-around;
+        width: 400px;
+        font-size: 1.3em;
+
+    }
+
+                    /*congrats page*/
+    
+    .congrats {
+        width: 430px;
+        min-height: 600px;
+        margin-top: 3.5em;
+    }
+
+    .message-box p {
+        font-size: 2em;
+    }
+
+    #play-again {
+        font-size: 20px;
+    }
+
+}
+
+@media screen and (min-width: 572px) and (max-width: 765px){
+
+                    /*landing page*/
+
+    .landing h1, .landing h2:not(#game-title) {
+        font-size: 4em;
+    }
+    
+    .landing #game-title {
+        font-size: 5em;
+    }
+
+    .start {
+        font-size: 2.5em;
+    }
+
+                    /*game page*/
+
+    .container header h1 {
+            font-size: 3.5em;
+    }
+
+    .deck {
+        width: 600px;
+        min-height: 600px;
+        margin: 5% 0;
+}
+
+    .deck .card {
+        height: 100px;
+        width: 92px;
+    }
+
+    .score-panel {
+        width: 580px;
+    }
+
+                    /*congrats page*/
+
+    .congrats {
+        width: 600px;
+        min-height: 700px;
+        margin-top: 2.5em;
+    }
+
+    #play-again {
+        width: 30%;
+        font-size: 25px;
+    }
+
+}
+
+@media screen and (min-width: 766px) and (max-width: 992px){
+
+                    /*landing page*/
+
+    .landing h1,
+    .landing h2:not(#game-title) {
+        font-size: 5em;
+    }
+
+    .container header h1 {
+        font-size: 4.5em;
+    }
+
+    .deck {
+        width: 750px;
+        min-height: 750px;
+    }
+
+                    /*game page*/
+        
+    .deck .card {
+        width: 118px;
+    }
+
+    .score-panel{
+        width: 700px;
+    }
+
+}
+
+
+
+
+
+
+
+                    /* KEYFRAMES */
+
+@-webkit-keyframes start{
+  0% {-webkit-transform:  translate(0px,0px)  rotate(0deg);transform:  translate(0px,0px)  rotate(0deg);}
+  15% {-webkit-transform:  translate(-25px,0px)  rotate(-5deg);transform:  translate(-25px,0px)  rotate(-5deg);}
+  30% {-webkit-transform:  translate(20px,0px)  rotate(3deg);transform:  translate(20px,0px)  rotate(3deg);}
+  45% {-webkit-transform:  translate(-15px,0px)  rotate(-3deg);transform:  translate(-15px,0px)  rotate(-3deg);}
+  60% {-webkit-transform:  translate(10px,0px)  rotate(2deg);transform:  translate(10px,0px)  rotate(2deg);}
+  75% {-webkit-transform:  translate(-5px,0px)  rotate(-1deg);transform:  translate(-5px,0px)  rotate(-1deg);}
+  100% {-webkit-transform:  translate(0px,0px)  rotate(0deg);transform:  translate(0px,0px)  rotate(0deg);}
+}
+
+@keyframes start{
+  0% {-webkit-transform:  translate(0px,0px)  rotate(0deg);transform:  translate(0px,0px)  rotate(0deg);}
+  15% {-webkit-transform:  translate(-25px,0px)  rotate(-5deg);transform:  translate(-25px,0px)  rotate(-5deg);}
+  30% {-webkit-transform:  translate(20px,0px)  rotate(3deg);transform:  translate(20px,0px)  rotate(3deg);}
+  45% {-webkit-transform:  translate(-15px,0px)  rotate(-3deg);transform:  translate(-15px,0px)  rotate(-3deg);}
+  60% {-webkit-transform:  translate(10px,0px)  rotate(2deg);transform:  translate(10px,0px)  rotate(2deg);}
+  75% {-webkit-transform:  translate(-5px,0px)  rotate(-1deg);transform:  translate(-5px,0px)  rotate(-1deg);}
+  100% {-webkit-transform:  translate(0px,0px)  rotate(0deg);transform:  translate(0px,0px)  rotate(0deg);}
+}
+
+
+@-webkit-keyframes Gradient {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% { background-position : 0% 50%; }
+}
+
+@keyframes Gradient {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% { background-position : 0% 50%; }
+}
+
+@-webkit-keyframes Gradient-scaling {
+    0% {background-position: 0% 50%; transform: scale(0.2);}
+    50% {background-position: 100% 50%; transform: scale(1.3);}
+    100% { background-position : 0% 50%; transform: scale(1); }
+}
+
+@keyframes Gradient-scaling {
+    0% {background-position: 0% 50%; transform: scale(0.2);}
+    50% {background-position: 100% 50%; transform: scale(1.3);}
+    100% { background-position : 0% 50%; transform: scale(1); }
+}
+
+@-webkit-keyframes Moving-stars {
+    0% {color: #fee607; transform: rotateX(360deg);}
+    25% {color: #fff69f; transform: rotateY(180deg) scale(1.5);}
+    50% {color: #ffeb3b; transform: rotateY(-180deg) rotateX(-190deg) scale(2.7);}
+    75% {color: #ffc107; transform: rotateY(-180deg) rotateX(190deg) scale(1.5);}
+    100% { color:#fee607; transform: scale(1);}
+}
+
+@keyframes Moving-stars {
+    0% {color: #fee607; transform: rotateX(360deg);}
+    25% {color: #fff69f; transform: rotateY(180deg) scale(1.5);}
+    50% {color: #ffeb3b; transform: rotateY(-180deg) rotateX(-190deg) scale(2.7);}
+    75% {color: #ffc107; transform: rotateY(-180deg) rotateX(190deg) scale(1.5);}
+    100% { color:#fee607; transform: scale(1);}
+}
+
+@-webkit-keyframes animate-me {
+    0% {color: #fcfb04; opacity: 0.5; transform: scale(1);}
+    50% {color: #efefc0; opacity: 1; transform: scale(2.5);}
+    100% {color: #fcfb04; opacity: 1; transform: scale(1);}
+}
+
+@keyframes animate-me {
+    0% {color: #fcfb04; opacity: 0.5; transform: scale(1);}
+    50% {color: #efefc0; opacity: 1; transform: scale(2.5);}
+    100% {color: #fcfb04; opacity: 1; transform: scale(1);}
+}
+
+@-webkit-keyframes animate-me2 {
+    0% {color: #fcfb04; opacity: 0.5; transform:  translateX(-10px);}
+    50% {color: #efefc0; opacity: 1; transform:  translateX(20px);}
+    75% {color: #fcfb04; opacity: 1; transform:  translateX(-20px);}
+    100% {color: #fcfb04; opacity: 0.5; transform:  translateX(10px);}
+}
+
+@keyframes animate-me2 {
+    0% {color: #fcfb04; opacity: 0.5; transform: translateX(-10px);}
+    50% {color: #efefc0; opacity: 1; transform:  translateX(20px);}
+    75% {color: #fcfb04; opacity: 1; transform:  translateX(-20px);}
+    100% {color: #fcfb04; opacity: 0.5; transform:  translateX(10px);}
+}
+
+@-webkit-keyframes score-stars {
+     0% {color: #ffff00; transform: rotateX(180deg);}
+     50% {color: #42f4eb; transform: scale(1.2) rotateZ(180deg) rotateX(-180deg);}
+     100% {color: #77f442; transform: scale(1) rotateZ(-180deg) rotateX(180deg);}   
+}
+
+@keyframes score-stars {
+    0% {color: #ffff00; transform: rotateX(180deg);}
+    50% {color: #42f4eb; transform: scale(1.2) rotateZ(180deg) rotateX(-180deg);}
+    100% {color: #77f442; transform: scale(1) rotateZ(-180deg) rotateX(180deg);}
+}
+
+@-webkit-keyframes matched-card {
+    0% {background-color: #00ffe9;}
+    25% {background-color: #00ff7f;}
+    50% {background-color: #a7ff00;}
+    75% {background-color: #00ff96;}
+    100% {background-color: #00feff;}
+}
+
+@keyframes matched-card {
+    0% {background-color: #00ffe9;}
+    25% {background-color: #00ff7f;}
+    50% {background-color: #a7ff00;}
+    75% {background-color: #00ff96;}
+    100% {background-color: #00feff;}
+}
+
+
+
+
+

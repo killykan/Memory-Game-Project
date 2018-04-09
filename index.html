@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Matching Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Memory Game Project">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Faster+One">
+    <link rel="stylesheet" href="css/app.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <div class="container">  
+					
+					<!--start of landing page-->
+
+    	<div class="landing">
+    		<h1>Welcome</h1>
+    		<h2>to the</h2>
+    		<h2 id="game-title">Matching Game</h2>
+    	</div>
+
+    	<div class="start" role="button">
+    			<i class="fas fa-hand-spock fa-2x"></i>
+    			<span>Click me !</span>
+    	</div>
+
+    	<div class="bgd">
+    		<video autoplay muted loop id="myVideo">
+  				<source src="img/Macro_Plex_4K_Motion_Background_Loop.mp4" type="video/mp4">
+			</video>
+    	</div>
+
+					<!--end of landing page-->
+
+					<!--start of game page-->
+
+        <header>
+            <h1 id="Mg">Matching Game</h1>
+        </header>
+
+      	<section class="deck">
+					<!--deck where the card will be appended-->
+        </section>
+
+        <section class="score-panel">
+        	<div class="score">
+        		<span>your score :</span>
+        		<ul class="stars">
+        			<li><i class="fa fa-star"></i></li>
+        			<li><i class="fa fa-star"></i></li>
+        			<li><i class="fa fa-star"></i></li>
+        		</ul>
+        	</div>
+
+			<div class="moves"></div>
+				
+			<div class="restart">
+        		<i class="fas fa-redo"></i>
+        	</div>
+		</section>	
+            		<!--end of game page-->
+
+            		<!--start of congrats page-->
+
+        <section class="congrats">
+
+        	<div class="stars">
+        		<span><i class="far fa-star fa-2x"></i></span>
+        		<span><i class="far fa-star fa-2x"></i></span>
+        		<span><i class="far fa-star fa-2x"></i></span>
+        	</div>
+
+        	<div class="message-box">
+        		<p>Amazing</p> 
+        		<p>You won!!</p> 
+        	</div>
+
+        	<div class="stars">
+        		<span><i class="far fa-star fa-2x"></i></span>
+        		<span><i class="far fa-star fa-2x"></i></span>
+        		<span><i class="far fa-star fa-2x"></i></span>
+        	</div>
+
+        	<button id="play-again">Play again</button>
+
+        	<div id="myvideo2">
+        		<video autoplay muted loop id="myVideo">
+  					<source src="img/hd1481.mov" type="video/mp4">
+				</video>
+        	</div>
+
+        </section>
+
+    </div>  <!--end of the container-->
+
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+    <script src="js/app.js"></script>
